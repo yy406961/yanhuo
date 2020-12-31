@@ -1,0 +1,145 @@
+@import './var.css';
+@import './table.css';
+@import './form.css';
+@import './dialog.css';
+@import './other.css';
+/** 覆盖element-ui 样式 **/
+
+.el-col {
+    /*padding: 0 12px 0 0;*/
+    color: #9af5f6;
+    font-weight: normal;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 2;
+    box-sizing: border-box;
+}
+.el-icon-close:before {
+    font-size: 12px;
+}
+
+/*form reset*/
+/* .el-form-item {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.el-input__inner:hover {
+    border-color: var(--border-color);
+}
+
+
+.el-input.is-disabled .el-input__inner {
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+    color: rgba(187, 187, 187, 0.5);
+}
+
+.el-textarea__inner {
+    background-color: var(--bg-color);
+    color: #fff;
+    border-color: var(--border-color);
+    border-radius: 0;
+    font-family: Microsoft Yahei, Helvetica Neue, Arial, Pingfang SC, sans-serif;
+    font-size: var(--con-size);
+}
+.el-textarea__inner:hover {
+    border-color: var(--border-color);
+} */
+/*禁用样式*/
+/* .el-textarea.is-disabled .el-textarea__inner {
+    color: rgba(187, 187, 187, 0.5);
+    background: none;
+    border-color: #176581;
+}
+
+.el-form-item__label {
+    padding: 0 8px 0 0;
+    line-height: 26px;
+    font-size: var(--con-size);
+    font-weight: normal;
+}
+.el-button {
+    vertical-align: inherit;
+} */
+/* 
+.el-select > .el-input {
+    display: inline-block;
+}
+.el-select__tags {
+    top: 50%;
+    max-width: 300px;
+}
+.el-select .el-tag {
+    height: 20px;
+    line-height: 20px;
+}
+ */
+
+/* table loading reset*/
+.el-loading-mask {
+    background: transparent;
+}
+
+/** 一些图标字体 **/
+.fa {
+    cursor: pointer;
+    color: #4c84e0;
+}
+.fa-ban {
+    cursor: not-allowed;
+    color: #666;
+}
+
+
+
+.nxPolice-table .el-col {
+    padding: 0 12px 0 0;
+    color: #9af5f6;
+    font-weight: normal;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 2;
+    box-sizing: border-box;
+}
+/* .current-row span {
+    color: #efb414;
+}
+.current-row > td {
+    background-color: rgba(38, 140, 198, 0.5) !important;
+}
+.current-row > td .cell{
+    color: #efb414;
+} */
+/*button按钮禁止*/
+/* .el-button.is-disabled {
+    background-color: #2b3b3c;
+    border-color: #4081dc;
+} */
+
+
+
+/*el-panel-select*/
+.time-select-item:hover {
+    color: #eee;
+    background-color: rgba(32, 160, 255, 0.8);
+}
+.el-picker-panel {
+    box-shadow: none;
+}
+
+/* .el-button.is-disabled,
+.el-button.is-disabled:focus,
+.el-button.is-disabled:hover {
+    background: none;
+} */
+.chartsBox {
+    position: relative;
+}
+.emptydata {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #51858b;
+    position: absolute;
+    top: 0;
+}

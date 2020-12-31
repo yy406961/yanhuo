@@ -1,0 +1,74 @@
+<template lang="html">
+    <div>
+        <el-row>
+            <el-col :span='12'>
+                <linesTrend :option="lineOpt" :renderData="lineData"></linesTrend>
+            </el-col>
+            <el-col :span='12'></el-col>
+        </el-row>
+    </div>
+</template>
+
+<script>
+    import linesTrend from 'components/monitor/linesTrend'
+    import axios from 'axios'
+    export default {
+        name: 'home',
+        data () {
+            return {
+                lineOpt: {
+                    width: '1000',
+                    height: '500',
+                    props: {
+                        xName: '地域',
+                        yName: '人员个数',
+                        tName: '新建图表标题'
+                    }
+                },
+                lineData: []
+            }
+        },
+        components: {
+            linesTrend
+        },
+        mounted () {
+            this.loadLineJson();
+//            this.lineData = [
+//                { name: '万达广场', value: '2', type: '全国' },
+//                { name: '火车站1', value: '3', type: '全国' },
+//                { name: '汽车站2', value: '1', type: '全国' },
+//                { name: '汽车站3', value: '10', type: '全国' },
+//                { name: '汽车站4', value: '7', type: '全国' },
+//                { name: '汽车站5', value: '3', type: '全国' },
+//                { name: '汽车站6', value: '1', type: '全国' },
+//                { name: '汽车站7', value: '0', type: '全国' },
+//                { name: '汽车站8', value: '5', type: '全国' },
+//                { name: '汽车站9', value: '1', type: '全国' },
+//                { name: '汽车站10', value: '9', type: '省内' },
+//                { name: '汽车站11', value: '15', type: '省内' },
+//                { name: '万达广场', value: '2', type: '省内' },
+//                { name: '火车站1', value: '0', type: '省内' },
+//                { name: '汽车站2', value: '5', type: '省内' },
+//                { name: '汽车站3', value: '10', type: '省内' },
+//                { name: '汽车站4', value: '4', type: '省内' },
+//                { name: '汽车站5', value: '13', type: '省内' },
+//                { name: '汽车站6', value: '4', type: '省内' },
+//                { name: '汽车站7', value: '8', type: '省内' },
+//                { name: '汽车站8', value: '2', type: '省内' },
+//                { name: '汽车站9', value: '11', type: '省内' },
+//                { name: '汽车站10', value: '2', type: '省内' },
+//                { name: '汽车站11', value: '10', type: '省内' }
+//            ]
+        },
+        methods: {
+            loadLineJson () {
+                axios.get('/example/static/line.json').then(resp => {
+                    this.lineData = resp.data
+                })
+            }
+        }
+    }
+</script>
+
+<style lang="css">
+</style>

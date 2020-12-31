@@ -1,0 +1,408 @@
+
+/* table reset -------------------------table Start---------------------------*/
+.el-table:after, .el-table:before {
+    background: transparent;
+}
+.el-table {
+    background: transparent;
+    color: var(--main-color);
+    font-size: 12px;
+    border: none;
+}
+.el-table__header,
+.el-table__body{
+    padding: 0 12px;
+}
+.el-table__header-wrapper{
+    border: 1px solid rgba(255,255,255,0.15);
+    border-bottom:none;
+    border-radius: 4px 4px 0 0;
+    background: rgba(134,187,255,0.15);
+}
+.el-table__body-wrapper{
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.10);
+}
+.isnoborder .el-table__header-wrapper{
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.03);
+}
+.isnoborder .el-table__body-wrapper{
+    border:none;
+}
+.el-table--border th.gutter:last-of-type{
+    border:none;
+}
+.el-table th, .el-table tr {
+    background-color: transparent;
+}
+.el-table td,.el-table th {
+    height: 30px;
+    padding:0;
+    border:none;
+}
+.el-table th {
+    color: var(--main-color);
+}
+.el-table td, .el-table th.is-leaf{
+    border-bottom: none;
+    /* border-bottom: 1px solid rgba(255,255,255,0.15); */
+}
+.el-table .cell{
+    padding: 0 4px;
+}
+.el-table__body tr.current-row>td,
+.el-table__body tr.hover-row.current-row>td{
+    background-color: transparent;
+}
+.el-table__body tr.hover-row.el-table__row--striped.current-row>td,
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td,
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+    /* background: rgba(12, 110, 155, 0.1); */
+    background: rgba(255, 255, 255, 0.04);
+}
+.el-table--enable-row-hover .el-table__body tr.el-table__row--striped.current-row:hover > td,
+.el-table--enable-row-hover .el-table__body tr:hover > td,
+.el-table__body tr.hover-row.current-row>td,
+.el-table__body tr.hover-row.el-table__row--striped.current-row>td,
+.el-table__body tr.hover-row.el-table__row--striped>td,
+.el-table__body tr.hover-row>td {
+    background: linear-gradient(
+        to bottom,
+        rgba(65, 165, 251, 0.4),
+        rgba(53, 147, 230, 0.4),
+        rgba(38, 127, 205, 0.4)
+    );
+}
+/* 点击table某一行的颜色 */
+.el-table .current-row span,
+.el-table .current-row > td .cell{
+    color:rgba(0,255,191,1);
+}
+/* 排序颜色 */
+.el-table .descending .sort-caret.descending{
+    border-top-color:rgba(0,197,255,1);
+}
+.el-table .ascending .sort-caret.ascending{
+    border-bottom-color: rgba(0,197,255,1);
+}
+/* 页码颜色 */
+.el-pagination{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.el-pagination .el-input--mini .el-input__inner{
+    height:24px;
+    line-height:24px;
+}
+.yq-pagination .el-pager li,
+.el-pagination .btn-next, .el-pagination .btn-prev{
+    color:#fff;
+    background:url("~assets/images/formImage/btn.png") no-repeat 0 center;
+    background-size: 100% 100%;
+    /* background: radial-gradient(50% 198%, rgba(5,150,199,1) 50%, rgba(18,78,126,1) 100%); */
+    /* border: 1px solid #028AD5; */
+    border-radius: 2px;;
+    margin-left: 10px;
+    min-width: 26px;
+    height: 24px;
+    line-height: 24px;
+}
+.el-pagination .el-select .el-input .el-input__inner{
+    border-radius: 0;
+}
+.yq-pagination .el-pager li.active{
+    background:url("~assets/images/formImage/pager-focus.png") no-repeat 0 center;
+    background-size: 100% 100%;
+    /* background-image: radial-gradient(50% 198%, #00FFBF 50%, #118F70 100%);
+    border: 1px solid #00FFBF; */
+}
+/* .el-pager li.active+li{
+    border-left:1px solid #028AD5;
+} */
+.yq-pagination .el-pager li:not(.active):hover,
+.el-pagination .btn-next:not(:disabled):hover,
+.el-pagination .btn-prev:not(:disabled):hover{
+    color: #fff;
+    background:url("~assets/images/formImage/btn-hover.png") no-repeat 0 center;
+    background-size: 100% 100%;
+    /* background: radial-gradient(50% 198%, rgba(5,150,199,0.5) 50%, rgba(18,78,126,0.5) 100%); */
+}
+.el-pagination button{margin:0;}
+.el-pagination .btn-prev,
+.el-pagination .btn-next{
+    padding:0;
+}
+.el-pagination .btn-prev .el-icon-arrow-left,
+.el-pagination .btn-next .el-icon-arrow-right{
+    color: inherit;
+}
+.el-pagination button:disabled{
+    opacity:0.35;
+}
+.el-pagination__total,
+.el-pagination__jump{
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+}
+.el-pagination__editor.el-input .el-input__inner{
+    height:24px;
+    line-height: 24px;
+}
+.ga-table button.operateBtn {
+    background: none !important;
+    border: none;
+    color: #fff;
+    padding: 0;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 1px;
+}
+.ga-table button.operateBtn.is-disabled span{
+    color: #ccc;
+}
+.ga-table button.operateBtn.is-disabled:hover {
+    background: none !important;
+}
+.el-table__fixed,
+.el-table__fixed-right{
+    background:rgb(23, 42, 66);
+    height:calc(100% - 5px)!important;
+    /* border-top: 1px solid rgba(255,255,255,0.15); */
+}
+.el-table__fixed-right .el-table__body{
+    padding: 0 0 0 12px;
+}
+.el-table__fixed-header-wrapper{
+    border-radius: 4px 4px 0 0;
+    border: 1px solid rgba(255,255,255,0.15);
+    /* border-left: none; */
+    /* border-bottom: none; */
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    background: rgba(134,187,255,0.15);
+}
+.el-table__fixed-body-wrapper{
+    border: 1px solid rgba(255,255,255,0.10);
+    border-top:none;
+    /* border-bottom:none; */
+}
+.el-table__fixed-right::before, .el-table__fixed::before{
+    background-color: transparent;
+}
+/* button.operateBtn.is-disabled {
+    color: #ccc !important;
+} */
+/* 表格排序箭头样式 */
+.gutterNone .gutter{
+    display:none;
+}
+/*table的某一列添加一个className（tdNowrap），
+实现超出td宽度的内容隐藏，以...结束，
+目前用于审计结果查询表格
+*/
+.tdNowrap div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.tdNowrap span {
+    white-space: nowrap;
+}
+/* .el-table__expand-icon {
+    color: var(--font-color);
+} */
+/* .el-pagination {
+    color: #20a0ff;
+} */
+/* .el-pager li,
+.el-pagination .btn-next,
+.el-pagination .btn-prev {
+    background: transparent;
+    border: none;
+    color: var(--font-color);
+} */
+/* .el-pagination button.disabled {
+    color: rgba(154, 245, 246, 0.6);
+    background: transparent;
+}
+.el-pager li:last-child {
+    border: none;
+} */
+/* .el-pagination__editor {
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+    color: var(--font-color);
+    padding: 2px 2px;
+}
+.el-pagination__sizes .el-input .el-input__inner {
+    border: 1px solid var(--border-color);
+}
+
+.el-pagination .el-select .el-input input {
+    color: var(--font-color);
+} */
+/*页码颜色*/
+/* .el-pagination button,
+.el-pagination span {
+    color: var(--font-color);
+}
+.el-table__empty-text {
+    color: var(--font-color);
+    opacity: 0.6;
+}
+
+.el-loading-text {
+    color: var(--font-color);
+} */
+/* .el-table__fixed,
+.el-table__fixed-right {
+    box-shadow: none;
+}
+.el-table__fixed-right::before,
+.el-table__fixed::before {
+    background-color: transparent;
+}
+.el-table__fixed-header-wrapper thead th {
+    background-color: rgba(8, 134, 255, 0.7);
+}
+.el-table__fixed-header-wrapper thead div {
+    background-color: transparent;
+    color: var(--font-color);
+}
+.el-table tr {
+    background: transparent;
+}
+.el-table td,
+.el-table th.is-leaf {
+    border: none;
+}
+.el-table th > .cell {
+    color: #fff;
+    font-size: 12px;
+}
+.el-table__footer-wrapper thead div,
+.el-table__header-wrapper thead div {
+    background: transparent;
+    color: var(--font-color);
+}
+.el-table__body tr.hover-row > td {
+    background: linear-gradient(
+        to bottom,
+        rgba(65, 165, 251, 0.4),
+        rgba(53, 147, 230, 0.4),
+        rgba(38, 127, 205, 0.4)
+    );
+}
+.el-table th:first-child {
+    background: linear-gradient(135deg, transparent 9px, rgba(19, 73, 148, 0.5) 0);
+} */
+/* .multiPath-table .el-table__empty-block {
+    min-height: 40px;
+}
+.multiPath-table .el-table__body-wrapper {
+    height: 40px;
+} */
+/* ------------------------------table Start---------------------------------- */
+/* .gutter{
+    display:none;
+} */
+/* .el-table .ascending .sort-caret.ascending {
+    border-bottom-color: #97a8be;
+}
+.el-table .sort-caret.ascending {
+    border-bottom: 5px solid #48576a;
+}
+.el-table .descending .sort-caret.descending {
+    border-top-color: #97a8be;
+}
+.el-table .sort-caret.descending {
+    border-top: 5px solid #48576a;
+} */
+/*
+    zyl 增加
+    使用范围：realTimeSeaarch页面 单行表格高度修改
+*/
+/* .realTimeSearch-dtTable .el-table__empty-block {
+    min-height: 40px;
+}
+.realTimeSearch-dtTable .el-table__body-wrapper {
+    height: 40px;
+} */
+/* 表头透明样式  目前应用于人物画像 */
+/* .headerTrans thead th, .headerTrans .el-table th:first-child{
+    background:transparent;
+} */
+/* table reset */
+/* .nxPolice-collapse .nxPolice-table .el-table,
+.nxPolice-table .el-table {
+    font-family: 'Microsoft YaHei';
+    color: #fff;
+    font-size: 12px;
+    border: none;
+}
+.nxPolice-table .el-table td,
+.nxPolice-table .el-table th {
+    height: 30px;
+}
+.nxPolice-table .el-table th:first-child {
+    background: transparent;
+}
+.nxPolice-table .el-table--enable-row-hover .el-table__body tr:hover {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.1));
+}
+.nxPolice-table .el-table__header-wrapper .el-table__header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+.nxPolice-table .el-table th {
+    background-color: transparent;
+}
+.nxPolice-table .el-table:after {
+    width: 0;
+    background: transparent;
+}
+.nxPolice-table .el-table:before {
+    background: transparent;
+}
+.nxPolice-table .el-table tr {
+    background: transparent;
+}
+.nxPolice-table .el-table td,
+.el-table th.is-leaf {
+    border: none;
+}
+.nxPolice-table .el-table__footer-wrapper thead div,
+.nxPolice-table .el-table__header-wrapper thead div {
+    background: transparent;
+    color: #fff;
+    font-weight: normal;
+}
+.nxPolice-table .el-table--enable-row-hover .el-table__body tr:hover > td {
+    background: transparent;
+}
+.nxPolice-table .el-table__expand-icon {
+    color: #fff;
+} */
+
+/* 黑底白字表格样式  write on black*/
+.WB .el-table__header-wrapper,
+.WB .el-table__body-wrapper{
+    border: 1px solid rgba(0,0,0,0.30);
+    background: rgba(0,0,0,0.30);
+}
+.WB .el-table__header-wrapper,
+.WB .el-table__body-wrapper {
+    border-bottom: 1px solid rgba(255,255,255,0.2)
+}
+.WB .el-table,
+.WB .el-table th {
+    color: #fff;
+    opacity: 0.75;
+}
+.WB .el-table .current-row span,
+.WB .el-table .current-row > td .cell {
+    color: inherit;
+}
+.WB tr.el-table__row.current-row {
+    background: rgba(0,165,255,0.30);
+}

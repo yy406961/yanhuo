@@ -1,0 +1,44 @@
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['exports', 'echarts'], factory);
+    } else if (typeof exports === 'object' && typeof exports.nodeName !== 'string') {
+        // CommonJS
+        factory(exports, require('echarts'));
+    } else {
+        // Browser globals
+        factory({}, root.echarts);
+    }
+}(this, function (exports, echarts) {
+    var log = function (msg) {
+        if (typeof console !== 'undefined') {
+            console && console.error && console.error(msg);
+        }
+    }
+    if (!echarts) {
+        log('ECharts is not Loaded');
+        return;
+    }
+    if (!echarts.registerMap) {
+        log('ECharts Map is not loaded')
+        return;
+    }
+    echarts.registerMap('zhangjiajie', {
+        'type': 'FeatureCollection',
+        'features': [{
+            'id': '430800',
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Polygon',
+                'coordinates': ['@@FOFCFAZCHEDCFKCQBKHKFGJExMlWJALFLNFBLPHHNJJDBCDI@IBU@O@K`FJC\\DLARC^LZJFBLFLBPGDGJEH@^DVCHAjKDC@EBCF@XEH@HHRDLFD@fAHCLKFAlFXAFCHOBICGKGAEDARANGFIBSBGFCjDbGdCNEHE`BPCHEDC@IJEF@TJPDfCL@PDJCJBPFN@VEV@FEESPCHKPBNUJ[BANDB@TOBEGK@EJEF@NBDABABGBQRU@E@GDIJEBCCEMIMSGSBMLMDMFCEMACGACCCGKIAC@C[IIGAEBEJCHKAAQEIGWAKCSKWmGOESIIAEBELEHKFUHMAGAKMUQQGCQKCK@EJSDGH@DCASQOQIOC[BYHCBAHEHMFADYDgSEeUMOKQQeMISYGOIGEAYBICCO@MCEiE[KK@C@ABDDFDBBABQBC@CJYTWHI@AA@AJG@ACGCBEFA@ACA@GDCAGIBGCEKECCGEO@E@GCKDC@CA@IEGGEK@EBCLEFCBCACIGIEEEAACBAAIDEBEFCFK@IBEFA@FDADA@EDABHCDF@DGBCLKFBFAHCBEFAJDRCDABEAIHIK@IAA[DGVQ@AEEGACMCAG@CLC@EG@EICUDSHO@[EMEAIFMPYDW@IEIKEMC[NWNIDIBEE@gEYMSKGMGKAMBIFe`IDI@MQKGOBKFGJMFCABKAUEAGAK@IFED@LGNSXYTOJ_`KBOAQDIDELIJMZKPG@aOUUHOPUBGAGCCcOWMAG@CHM\\cFGDMBQEMIGKGMXKLUNQPKFGDIAOUNI@GECMAGMEA_F@JCD_BSTEBC@MGWCKGCCAEAKKHsL@NLTBZCHEFIHeRMBOAICE@MLAHAVFDTL@NNFNL@DI@NRDNTXBH@HKP@HFLGJE@IEKFG@QKG@IFEHBDEFAF@NFXBPDFAXIAMGG@GAICEEIOOEG@GHMFAF@FF\\DDJDBDJPETADGBc@CDODOAGDADHJHD@FE@GEA@AJSVBFELIHGAIAIOAAI@ONMJM@CCGIEGCAKCCCBIKMKCEBKHKDKAE@CCEAIDCFGNBP@RETENIJEXIJCLBPDNPNBD@BCTDJLBFAL@PFPfDNAVSZKNaTMD@BIDKA[OuCAGBQNEBWBWDOJOPOLUFID@DbRPP@LCLGJOHCH@HP\\@HOVIrGXKPIFS@MEãËO^KHWZQNBLPPFBDB@BANIJ@BBH@D]dOVAFARADCBIBITYRGRQbCFGF@DHJFDN@DHTRn^@BEJOFGD@DEN@FHJBFCFAFKD_BGAUKGAG@EDIFFDAFAFKRQJ@DTPHLFL@FIXBFVDXFpVJLBH@HEHGD@FDFVNBB@DGHUHABDBABCCEBANFDR@JD@FFHHHHDXL|N`@dFR@NDRGJGJALDFDFBDALKJ@\\LHBJJLCLJDEAADChANGNBPFVAHCJB\\@LDfL`JRBNDRBZDZBdQ\\SPOJKFGTA\\BHBVA`KLAVO^MLGRQRKRGXYDO@OBSDIFCJEPALBJFPDVDHA@EBCPODCCOFINITCXNpTDDJDBNBBl@TFDF@R@LBRFJNPDNHFHAHGjOVKFEPALBVHTNHFLDXJFDRRNLRJbVPFRRDBL@'],
+                'encodeOffsets': [[113287, 30472]]
+            },
+            'properties': {
+                'cp': [110.479921, 29.127401],
+                'name': '张家界市',
+                'childNum': 1
+            }
+        }],
+        'UTF8Encoding': true
+    });
+}));

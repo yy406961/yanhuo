@@ -1,0 +1,140 @@
+{
+    "status":200,
+    "rows": [
+        {
+            "id" : "20000",
+            "image": "menuOneItem5",
+            "name": "全网分析",
+            "child": [
+                {
+                    "id" : "20001",
+                    "name": "区内位置查询",
+                    "path": "/wholeNetAnalysis/partRealTimeSearch"
+                },
+                {
+                    "id" : "20002",
+                    "name": "区内历史轨迹查询",
+                    "path": "/wholeNetAnalysis/partHistorySearch"
+                },
+                {
+                    "id" : "20003",
+                    "name": "区内机身码查询",
+                    "path": "/wholeNetAnalysis/partPSNumSearch"
+                },
+                {
+                    "id" : "20004",
+                    "name": "全国位置查询",
+                    "path": "/wholeNetAnalysis/nationRealTimeSearch"
+                },
+                {
+                    "id" : "20005",
+                    "name": "全国历史轨迹查询",
+                    "path": "/wholeNetAnalysis/nationHistorySearch"
+                },
+                {
+                    "id" : "20006",
+                    "name": "全国机身码查询",
+                    "path": "/wholeNetAnalysis/nationPSNumSearch"
+                }
+            ]
+        },
+        {
+            "id" : "30000",
+            "image": "menuOneItem1",
+            "name": "短信查询分析",
+            "child": [
+                {
+                    "id" : "30001",
+                    "name": "目标短信查询",
+                    "path": "/msgAnalysis/targetMsg"
+                },
+                {
+                    "id" : "30002",
+                    "name": "短信内容逻辑查询",
+                    "path": "/msgAnalysis/msgLogic"
+                },
+                {
+                    "id" : "30003",
+                    "name": "人物画像短信查询",
+                    "path": "/msgAnalysis/personnalPortrayal"
+                },
+                {
+                    "id" : "30004",
+                    "name": "有害短信溯源分析",
+                    "path": "/msgAnalysis/harmMsg"
+                }
+            ]
+        },
+        {
+            "id" : "40000",
+            "image": "menuOneItem4",
+            "name": "数据分析",
+            "child": [
+                {
+                    "id" : "40001",
+                    "name": "目标话单查询",
+                    "path":"/dataSearch/targetTicketQuery"
+                },
+                {
+                    "id" : "40002",
+                    "name": "目标事件查询",
+                    "path":"/dataSearch/targetEventQuery"
+                }
+            ]
+        },
+        {
+            "id" : "50000",
+            "image": "menuOneItem1",
+            "name": "基础数据管理",
+            "child": [
+                {
+                    "id" : "50001",
+                    "name": "目标号码管理",
+                    "path":"/baseData/targetNumberManage"
+                },
+                {
+                    "id" : "50002",
+                    "name": "关键词查询",
+                    "path":"/baseData/keywordManage"
+                }
+            ]
+        },
+        {
+            "id" : "60000",
+            "image": "menuOneItem1",
+            "name": "系统管理",
+            "child": [
+                {
+                    "id" : "60001",
+                    "name": "组织管理",
+                    "path":"/system/organizationManage"
+                },
+                {
+                    "id" : "60002",
+                    "name": "部门管理",
+                    "path":"/system/department"
+                },
+                {
+                    "id" : "60003",
+                    "name": "角色管理",
+                    "path":"/system/roleManagement"
+                },
+                {
+                    "id" : "60004",
+                    "name": "人员管理",
+                    "path":"/system/personnelManagement"
+                },
+                {
+                    "id" : "60006",
+                    "name": "重点区域管理",
+                    "path":"/system/areaManage"
+                },
+                {
+                    "id" : "60007",
+                    "name": "审计管理",
+                    "path":"/system/auditManage"
+                }
+            ]
+        }
+    ]
+}
