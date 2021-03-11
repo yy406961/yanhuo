@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-23 16:23:34
+ * @LastEditTime: 2021-03-10 17:26:08
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \yanhuo\static\vendor\echarMap\load.js
+ */
 
 ;(function () {
     let worldMap = [
@@ -34,6 +42,7 @@
     let hunanMap = [
         'hunan',
         'changsha',
+        'changshaDetail',
         'zhuzhou',
         'changde',
         'chenzhou',
