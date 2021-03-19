@@ -15,7 +15,7 @@
             <p class="ga-dataPart__numTitle" :style="flipTitleStyle">{{userTitle[flipType]}}</p>
             <div class="ga-dataPart__userTabWrap">
                 <div :class="['ga-dataPart__userTab',
-                    {'ga-dataPart__userTabColor': [1, 3, 11, 14].includes(item.value)},
+                    {'ga-dataPart__userTabColor': [1, 11, 14].includes(item.value)},
                     {'ga-dataPart__userTabWidth': [11, 12, 14].includes(item.value)},
                     {'ga-dataPart__userPointTab': isUserClick(item.value)}]"
                     @click="tabClick(item)"
@@ -83,8 +83,8 @@ export default {
                 { name: '境外', value: 12, text: '境外在线用户排行' },
                 { name: '区域常住用户', value: 1, text: '' },
                 { name: '区域流动用户', value: 2, text: '' },
-                { name: '疆藏用户', value: 3, text: '' },
-                { name: '重点人', value: 13, text: '在线重点人列表' }
+                { name: '疆藏用户', value: 3, text: '' }
+                // { name: '重点人', value: 13, text: '在线重点人列表' }
             ]
             return result
         },

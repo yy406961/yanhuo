@@ -4,8 +4,8 @@
 
 <script>
 const buildData = data => {
-    let colors = ['rgba(12, 227, 240, 1)', 'rgba(115, 234, 255, 1)', 'rgba(245, 136, 255, 1)',
-        'rgba(255, 129, 104, 1)', 'rgba(229, 175, 22, 1)', 'rgba(215, 255, 130, 1)']
+    let colors = ['#0CE3F0', '#62FFB7', '#F588FF',
+        '#FF8168', '#E5AF16', '#D7FF82']
     let Xdata = []
     let seriesData = []
     if (data.length) {
