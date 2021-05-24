@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-23 16:23:24
+ * @LastEditTime: 2021-03-26 15:48:42
+ * @LastEditors: your name
+ * @Description: In User Settings Edi
+ * @FilePath: \yanhuo\config\dev.env.js
+ */
 var merge = require('webpack-merge')
 var prodEnv = require('./prod.env')
 
@@ -16,8 +24,8 @@ module.exports = merge(prodEnv, {
     // MOCK_URL:'"http://192.168.3.185:8080/policeBusiness"'
     // MOCK_URL:'"http://192.168.3.196:8080/policeBusiness"'
     // MOCK_URL:'"http://192.168.3.185:8080/policeBusiness"'
-     //MOCK_URL:'"http://172.16.1.6:8080/policeBusiness"'
-    MOCK_URL:'"http://locallhost:8080/policeBusiness"'
+     MOCK_URL:'"http://15.15.11.29:8145/policeBusiness"'
+    // MOCK_URL:'"http://locallhost:8080/policeBusiness"'
    // MOCK_URL:'"15.15.11.128:8045/policeBusiness"'
     //MOCK_URL:'"15.15.11.25:8080/policeBusiness"'
     // MOCK_URL:'"http://10.250.192.204:8085/policeBusiness"'

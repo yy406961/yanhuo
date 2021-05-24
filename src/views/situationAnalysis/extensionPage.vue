@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-03-10 09:37:24
- * @LastEditTime: 2021-03-11 10:22:32
+ * @LastEditTime: 2021-03-31 15:01:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \yanhuo\src\views\situationAnalysis\extensionPage.vue
@@ -91,7 +91,7 @@
     import phoneBarChart from './components/phoneBarChart'
     import mapChart from './components/mapChart'
     import { mapGetters } from 'vuex'
-    // import { ajax } from 'common'
+    import { ajax } from 'common'
     export default {
         name: 'home',
         data() {
@@ -180,6 +180,7 @@
         mounted () {
             this.chartsHeight()
             this.getBaseData()
+            this.getPhoneBarData()
             this.init()
             // 轮询
             this.rollPoling()
@@ -196,7 +197,7 @@
                     } else {
                         this.activeIndex++
                     }
-                }, 5000)
+                }, 10000)
             },
             // 初始高度
             chartsHeight() {
@@ -209,88 +210,172 @@
                 this.getUserStatisticsData()
                 this.getUserLineData()
                 this.getUserConstituteData(0)
-                this.getPhoneBarData()
                 this.getMapData()
             },
             // 获取基础数据
             getBaseData() {
-                this.sssj = 235680
-                this.czsj = 235681
-                this.ssczsj = 235682
-                this.ldsj = 235683
-                // 页面第一次进入左上角显示实时用户数
-                this.totalUser = this.sssj
+                // this.sssj = 235680
+                // this.czsj = 235681
+                // this.ssczsj = 235682
+                // this.ldsj = 235683
+                // // 页面第一次进入左上角显示实时用户数
+                // this.totalUser = this.sssj
+
+                ajax.post(`api/phone/basisData/basisAll`)
+                    .then(resp => {
+                        if (resp) {
+                            let { data } = resp;
+                            this.sssj = data.sssj
+                            this.czsj = data.czsj
+                            this.ssczsj = data.ssczsj
+                            this.ldsj = data.ldsj
+                            // 页面第一次进入左上角显示实时用户数
+                            this.totalUser = this.sssj
+                        }
+                    })
+                    .catch(error => {
+                        console.log('请求接口错误信息：', error)
+                    })
             },
             // 获取用户数统计
             getUserStatisticsData() {
-                let data = {
-                    cs: 28441,
-                    jw: 28442,
-                    jz: 28443,
-                    sn: 28444,
-                    sw: 28445
-                }
-                this.userStatistics[0].value = data.cs
-                this.userStatistics[1].value = data.jw
-                this.userStatistics[2].value = data.jz
-                this.userStatistics[3].value = data.sn
-                this.userStatistics[4].value = data.sw
+                // let data = {
+                //     cs: 28441,
+                //     jw: 28442,
+                //     jz: 28443,
+                //     sn: 28444,
+                //     sw: 28445
+                // }
+                // this.userStatistics[0].value = data.cs
+                // this.userStatistics[1].value = data.jw
+                // this.userStatistics[2].value = data.jz
+                // this.userStatistics[3].value = data.sn
+                // this.userStatistics[4].value = data.sw
+
+                ajax.post(`api/phone/basisData/userCount`, {
+                    type: this.activeIndex
+                })
+                    .then(resp => {
+                        if (resp) {
+                            let { data } = resp;
+                            this.userStatistics[0].value = data.cs
+                            this.userStatistics[1].value = data.jw
+                            this.userStatistics[2].value = data.jz
+                            this.userStatistics[3].value = data.sn
+                            this.userStatistics[4].value = data.sw
+                        }
+                    })
+                    .catch(error => {
+                        console.log('请求接口错误信息：', error)
+                    })
             },
             // 用户数构成数据
             getUserConstituteData(type) {
+                // let data = [
+                //     { area: '长沙市', count: 123 },
+                //     { area: '长沙市', count: 113 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 },
+                //     { area: '长沙市', count: 103 }
+                // ]
+                // this.userBarData = data
+
                 this.curTab = type
-                let data = [
-                    { area: '长沙市', count: 123 },
-                    { area: '长沙市', count: 113 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 },
-                    { area: '长沙市', count: 103 }
-                ]
-                this.userBarData = data
+                ajax.post(`api/phone/basisData/userConstitute`, {
+                    sort: this.curTab,
+                    type: this.activeIndex
+                })
+                    .then(resp => {
+                        if (resp) {
+                            let { data } = resp;
+                            this.userBarData = data
+                        }
+                    })
+                    .catch(error => {
+                        console.log('请求接口错误信息：', error)
+                    })
             },
             // 获取用户曲线数据
             getUserLineData() {
-                let data = [
-                    { name: '实时', value: [100, 200, 100, 100, 100, 100, 100], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
-                    { name: '长沙', value: [200, 200, 300, 200, 200, 200, 200], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
-                    { name: '境外', value: [300, 100, 300, 300, 300, 300, 300], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
-                    { name: '疆藏', value: [400, 300, 400, 400, 400, 400, 400], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
-                    { name: '省内', value: [500, 400, 500, 500, 500, 500, 500], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
-                    { name: '省外', value: [600, 500, 600, 600, 600, 600, 600], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] }
-                ]
-                this.userLineData = data
+                // let data = [
+                //     { name: '实时', value: [100, 200, 100, 100, 100, 100, 100], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
+                //     { name: '长沙', value: [200, 200, 300, 200, 200, 200, 200], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
+                //     { name: '境外', value: [300, 100, 300, 300, 300, 300, 300], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
+                //     { name: '疆藏', value: [400, 300, 400, 400, 400, 400, 400], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
+                //     { name: '省内', value: [500, 400, 500, 500, 500, 500, 500], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
+                //     { name: '省外', value: [600, 500, 600, 600, 600, 600, 600], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] }
+                // ]
+                // this.userLineData = data
+
+                ajax.post(`api/phone/basisData/userCurve`, {
+                    type: this.activeIndex
+                })
+                    .then(resp => {
+                        if (resp) {
+                            let { data } = resp;
+                            this.userLineData = data
+                        }
+                    })
+                    .catch(error => {
+                        console.log('请求接口错误信息：', error)
+                    })
             },
             // 获取手机用户流入流出对比（近7日）
             getPhoneBarData() {
-                let data = [
-                  { name: '流入', value: [19.7, 34.7, 17.6, 8.1, 19.9, 30, 28], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
-                  { name: '流出', value: [37.6, 31.9, 11.4, 6.6, 12.9, 30, 20], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] }
-                ]
-                this.phoneBarData = data
+                // let data = [
+                //   { name: '流入', value: [19.7, 34.7, 17.6, 8.1, 19.9, 30, 28], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] },
+                //   { name: '流出', value: [37.6, 31.9, 11.4, 6.6, 12.9, 30, 20], time: ['3/1', '3/2', '3/3', '3/4', '3/5', '3/6', '3/7'] }
+                // ]
+                // this.phoneBarData = data
+
+                ajax.post(`api/phone/basisData/userFlow`, {
+                    type: this.activeIndex
+                })
+                    .then(resp => {
+                        if (resp) {
+                            let { data } = resp;
+                            this.phoneBarData = data
+                        }
+                    })
+                    .catch(error => {
+                        console.log('请求接口错误信息：', error)
+                    })
             },
             // 获取地图数据
             getMapData() {
-                let data = [
-                    { name: '岳麓区', value: 25301 },
-                    { name: '天心区', value: 68501 },
-                    { name: '芙蓉区', value: 58963 },
-                    { name: '开福区', value: 43658 },
-                    { name: '雨花区', value: 654850 },
-                    { name: '望城区', value: 56920 },
-                    { name: '长沙县', value: 36520 },
-                    { name: '宁乡县', value: 45682 },
-                    { name: '浏阳市', value: 52104 }
-                ]
-                this.mapData = data
+                // let data = [
+                //     { name: '岳麓区', value: 25301 },
+                //     { name: '天心区', value: 68501 },
+                //     { name: '芙蓉区', value: 58963 },
+                //     { name: '开福区', value: 43658 },
+                //     { name: '雨花区', value: 654850 },
+                //     { name: '望城区', value: 56920 },
+                //     { name: '长沙县', value: 36520 },
+                //     { name: '宁乡县', value: 45682 },
+                //     { name: '浏阳市', value: 52104 }
+                // ]
+                // this.mapData = data
+                ajax.post(`api/phone/basisData/mapDate`, {
+                    type: this.activeIndex
+                })
+                    .then(resp => {
+                        if (resp) {
+                            let { data } = resp;
+                            this.mapData = data
+                        }
+                    })
+                    .catch(error => {
+                        console.log('请求接口错误信息：', error)
+                    })
             },
             // 长沙地图点击事件
             areaClick(params) {

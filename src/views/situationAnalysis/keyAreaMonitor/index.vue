@@ -314,7 +314,9 @@ export default {
                     70029: [30, 151],
                     70030: [30, 152],
                     70031: [30, 153],
-                    70036: [30, 160]
+                    70036: [30, 160],
+                    70038: [30, 161],
+                    70039: [30, 162]
                 };
                 this.jzShow = this.Interface ? this.Interface === 70010 : true
                 this.showTitle = false

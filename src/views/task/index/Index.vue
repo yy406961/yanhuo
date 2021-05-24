@@ -66,6 +66,7 @@
     import keySmallArea from '../../situationAnalysis/keyAreaMonitor/keySmallArea.vue'
     import CounterTerrorism from '../../situationAnalysis/CounterTerrorism.vue';
     import extensionPage from '../../situationAnalysis/extensionPage.vue';
+    import extensionEx from '../../situationAnalysis/extensionEx.vue';
     // eslint-disable-next-line no-unused-vars
     import letterVisit from '../../letterVisit/index.vue';
     // eslint-disable-next-line no-unused-vars
@@ -131,7 +132,9 @@
                     { id: 70031, page: 'keyAreaPage' },
                     { id: 70032, page: 'keyAreaPage' },
                     { id: 70036, page: 'keyAreaPage' },
-                    { id: 70037, page: 'extensionPage' }
+                    { id: 70037, page: 'extensionEx' },
+                    { id: 70038, page: 'keyAreaPage' },
+                    { id: 70039, page: 'keyAreaPage' }
                 ]
             }
         },
@@ -430,6 +433,7 @@
             keyAreaPageJZZ,
             keyPersons,
             extensionPage,
+            extensionEx,
             // minorityPage,
             // minoritySJPage,
             // minoritySZPage,
